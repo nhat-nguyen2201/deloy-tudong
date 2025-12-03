@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Frontend Gọi Backend</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Website Demo</h1>
     <button id="call-backend">Gọi Backend</button>
     <p id="result"></p>
-
+    <!-- hghdgjg -->
     <script>
-        document.getElementById('call-backend').addEventListener('click', async () => {
-            try {
-                const response = await fetch('https://your-infinityfree-domain.epizy.com/api.php');
-                const data = await response.json();
-                document.getElementById('result').innerText = `Message: ${data.message} - Time: ${data.timestamp}`;
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('result').innerText = 'Lỗi khi gọi backend';
-            }
+      document
+        .getElementById("call-backend")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch(
+              "https://your-infinityfree-domain.epizy.com/api.php"
+            );
+            const data = await response.json();
+            document.getElementById(
+              "result"
+            ).innerText = `Message: ${data.message} - Time: ${data.timestamp}`;
+          } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("result").innerText = "Lỗi khi gọi backend";
+          }
         });
     </script>
-</body>
+  </body>
 </html>
