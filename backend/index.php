@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); // Cho phép frontend gọi từ domain khác rjehfkh
+header('Access-Control-Allow-Origin: *'); // Cho phép frontend gọi từ domain khác
 
 $data = [
     'message' => 'Hello from PHP backend!',
