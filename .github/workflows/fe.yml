@@ -1,0 +1,27 @@
+name: Deploy Frontend (Somee)
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy-fe:
+    runs-on: ubuntu-latest
+    name: Deploy HTML/PHP to Somee
+    steps:
+      - name: 🚚 Lấy code mới nhất
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: 🚀 Upload lên Somee qua FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          # Đảm bảo dùng biến SOMEE (không phải IF)
+          server: ${{ secrets.SOMEE_SERVER }} 
+          username: ${{ secrets.SOMEE_USERNAME }}
+          password: ${{ secrets.SOMEE_PASSWORD }}
+          local-dir: ./frontend/
+          server-dir: /www.DSS.somee.com/
